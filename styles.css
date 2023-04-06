@@ -102,11 +102,14 @@ body {
     input {
         all: unset;
         color: var(--text-color);
+    }
+
+    input[class|="item"] {
         width: 7.5vw;
-        /* background-color: red; */
         font-size: 2rem;
         font-weight: 200;
         text-align: center;
+        cursor: pointer;
     }
         
         @keyframes teeter {
@@ -213,6 +216,11 @@ body {
                 --y: 78%;
             }
 
+    .inverting-light {
+        background-color: hsla(200, 100%, 90%, 0.4);
+        backdrop-filter: invert(100%);
+    }
+    
     .selection {
         --x: 0%;
         --y: 0%;
@@ -225,8 +233,6 @@ body {
                 5rem 100%,
                 0% calc(100% - 5rem)
             );
-        background-color: hsla(200, 100%, 90%, 0.4);
-        backdrop-filter: invert(100%);
         position: absolute;
         right: 6%;
         bottom: 6%;
@@ -242,7 +248,7 @@ body {
         transition: transform 500ms ease-in-out 1s;
     }
 
-    .invert {
+    .invert-brightness {
         filter: invert(100%) hue-rotate(180deg);
     }
     
@@ -251,22 +257,34 @@ body {
         right: 0;
         top: 0;
         pointer-events: none;
-        /* outline: solid red 1px; */
     }
     
         div[class|="ray"] {
-            background-color: hsla(200, 100%, 90%, 0.4);
-            backdrop-filter: invert(100%);
             position: relative;
             display: flex;
-            align-items: center;
             justify-content: center;
-            
-            transition: transform 500ms ease-in-out;
+            animation: hide-animation-on-page-load 500ms linear;
         }
 
+            @keyframes hide-animation-on-page-load {
+                from, to {
+                    opacity: 0;
+                }
+            }
+
+            .submenu-selection {
+                position: absolute;
+                z-index: -1;
+                height: 100%;
+                width: 100%;
+            }
+
             a[class|="project"] {
-                position: relative;
+                height: 100%;
+                width: 100%;
+                line-height: 3.5rem;
+                display: flex;
+                justify-content: center;
             }
 
         .submenu-1 {
@@ -278,13 +296,12 @@ body {
                 position: absolute;
                 right: 0%;
                 transform-origin: -25% -550%;
-                /* outline: solid green 10px; */
             }
             
                 .top-wrap-1 {
                     bottom: 30%;
                     transform: rotateZ(-30deg);
-                    transition: transform 300ms ease-in-out 0ms;
+                    transition: transform 400ms ease-in-out 0ms;
                 }
                 
                     .submenu-1:focus-within .top-wrap-1,
@@ -301,13 +318,18 @@ body {
                     }
 
                         .project-1 {
-                            left: 8%;
+                            padding-left: 16%;
                         }
+
+                            .project-1:hover ~ .submenu-selection,
+                            .project-1:focus-within ~ .submenu-selection {
+                                background-color: hsl(330deg, 100%, 65%);
+                            }
                 
                 .top-wrap-2 {
                     bottom: -30%;
                     transform: rotateZ(-25deg);
-                    transition: transform 300ms ease-in-out 100ms;                
+                    transition: transform 400ms ease-in-out 100ms;                
                 }
                 
                     .submenu-1:focus-within .top-wrap-2,
@@ -324,8 +346,13 @@ body {
                     }
 
                         .project-3 {
-                            left: 21%;
+                            padding-left: 42%;
                         }
+
+                            .project-3:hover ~ .submenu-selection,
+                            .project-3:focus-within ~ .submenu-selection {
+                                background-color: hsl(200, 100%, 50%);
+                            }
 
             div[class|="right-wrap"] {
                 position: absolute;
@@ -337,7 +364,7 @@ body {
                 .submenu-1 .right-wrap-1 {
                 bottom: 0%;
                 transform: rotateZ(31deg); 
-                transition: transform 300ms ease-in-out 50ms;  
+                transition: transform 400ms ease-in-out 50ms;  
                 }
                 
                     .submenu-1:focus-within .right-wrap-1,
@@ -354,7 +381,114 @@ body {
                     }
 
                         .project-2 {
-                            left: 15%;
+                            padding-left: 30%;
+                        }
+
+                            .project-2:hover ~ .submenu-selection,
+                            .project-2:focus-within ~ .submenu-selection {
+                                background-color: hsl(100deg, 100%, 60%)
+                            }
+
+        .submenu-2 {
+            height: 100%;
+            width: 100%;
+        }
+
+            div[class|="spotlight"] {
+                position: absolute;
+                border-radius: 50%;
+                height: 0rem;
+                aspect-ratio: 1 / 1;
+                transform: translate(-50%, -50%);
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: height 500ms cubic-bezier(0.75, -0.5, 0.75, 1);
+            }
+
+                article {
+                    aspect-ratio: 1 / 1;
+                }
+
+                article::before {
+                    content: "";
+                    float: left;
+                    aspect-ratio: 1 / 2;
+                    shape-outside: polygon(
+                        0 0,
+                        98% 0,
+                        50% 6%,
+                        23.4% 17.3%,
+                        6% 32.6%,
+                        0 50%,
+                        6% 65.6%,
+                        23.4% 82.7%,
+                        50% 94%,
+                        98% 100%,
+                        0 100%
+                        );
+                    shape-margin: 7%;
+                }
+
+                .description::before {
+                    content: "";
+                    float: right;
+                    aspect-ratio: 1 / 2;
+                    shape-outside: polygon(
+                        2% 0%,
+                        100% 0%,
+                        100% 100%,
+                        2% 100%,
+                        50% 94%,
+                        76.6% 82.7%,
+                        94% 65.6%,
+                        100% 50%,
+                        94% 32.6%,
+                        76.6% 17.3%,
+                        50% 6%
+                        );
+                    shape-margin: 7%;
+                }
+            
+            .description {
+                text-align: center;
+            }
+
+                .item-2:focus-within ~ .submenu-2 div[class|="spotlight"] {
+                    transition: height 750ms ease-in-out;
+                }
+
+                .spotlight-1 {
+                    top: 45%;
+                    left: 25%;
+                }
+
+                    .spotlight-1 article,
+                    .spotlight-1 article::before,
+                    .spotlight-1 .description::before,
+                    .item-2:focus-within ~ .submenu-2 .spotlight-1 {
+                        height: 27rem;
+                    }
+
+                        .spotlight-1 .description {
+                            font-size: 1.32rem;
+                        }
+
+                .spotlight-2 {
+                    top: 25%;
+                    left: 62%;
+                }
+
+                    .spotlight-2 article,
+                    .spotlight-2 article::before,
+                    .spotlight-2 .description::before,
+                    .item-2:focus-within ~ .submenu-2 .spotlight-2 {
+                        height: 17rem;
+                    }
+
+                        .spotlight-2 .description {
+                            font-size: 0.94rem;
                         }
 
         .submenu-3 {
@@ -381,10 +515,6 @@ body {
                 }
 
                     .slide-anim {
-                        /* background-color: red; */
-                        position: relative;
-                        left: 2rem;
-                        width: 8rem;
                         text-align: center;
                         display: grid;
                         align-items: center;
@@ -396,7 +526,7 @@ body {
                             grid-template-columns: 30% 70%;
                         }
 
-                            .slide-anim:hover .social {
+                            .slide-anim:hover .brand {
                                 opacity: 1;
                                 right: 0;
                                 transition: 
@@ -413,7 +543,7 @@ body {
                                 transition: left 500ms ease-in-out;
                             }
 
-                            .social {
+                            .brand {
                                 opacity: 0;
                                 right: 120%;
                                 transition: 
@@ -421,6 +551,26 @@ body {
                                     right 500ms ease-in-out;
                             }
 
-                                .social.wider-text {
+                                .brand.wider-text {
                                     right: 100%;
                                 }
+
+                    a[class|="social"] {
+                        position: relative;
+                        left: 2rem;
+                        width: 8rem;
+                    }
+
+                        a[class|="social"] > * {
+                            pointer-events: none;
+                        }
+
+                        .social-1:hover ~ .submenu-selection,
+                        .social-1:focus-within ~ .submenu-selection {
+                            background-color: hsl(340deg, 100%, 65%);
+                        }
+
+                        .social-2:hover ~ .submenu-selection,
+                        .social-2:focus-within ~ .submenu-selection {
+                            background-color: hsl(160deg, 100%, 65%);
+                        }
