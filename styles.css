@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;900&display=swap');
 
 :root {
+    --bg-color: rgb(0, 8, 15);
     --text-color: hsl(200deg, 100%, 92%);
 }
 
 html {
-    font-family: 'lexend deca', sans-serif;
-    font-size: 1vw;
+    font-family: 'lexend deca', Tahoma, 'Trebuchet MS';
+    font-size: calc(10px + 0.36vw);
     font-weight: 200;
     color: var(--text-color);
 }
@@ -25,7 +26,7 @@ body {
 .container {
     height: 100%;
     width: 100%;
-    background-color: rgb(0, 8, 15);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +106,7 @@ body {
     }
 
     input[class|="item"] {
-        width: 7.5vw;
+        width: 7.5rem;
         font-size: 2rem;
         font-weight: 200;
         text-align: center;
@@ -139,7 +140,7 @@ body {
         input[class|="item"]:hover ~ .selection,
         input[class|="item"]:focus-within ~ .selection,
         div[class|="submenu"]:focus-within ~ .selection {
-            --offset: 3%;
+            --offset: 0%;
             transition: transform 400ms ease-in-out;
         }
 
@@ -147,73 +148,90 @@ body {
             position: absolute;
             bottom: 68%;
             right: 55%;
+            /* right: 70%; */
             transform-origin: 50% 60%;
             transform: translate(50%, 50%);
         }
 
             .item-1:not(:focus-within):hover {
-                transform: translate(50%, 50%) scale(1.2);
+                transform: translate(50%, 50%) scale(1.1);
                 animation: teeter 3s linear infinite;
             }
 
             .item-1:hover ~ .selection {
                     --x: 45% !important;
                     --y: 32% !important;
+                    /* --x: 30% !important; */
+                    /* --y: 32% !important; */
                 }
 
             .item-1:focus-within ~ .selection,
             .submenu-1:focus-within ~ .selection {
                     --x: 45%;
                     --y: 32%;
+                    /* --x: 30%; */
+                    /* --y: 32%; */
                 }
 
         .item-2 {
             position: absolute;
             bottom: 45%;
             right: 38%;
+            /* bottom: 50%; */
+            /* right: 50%; */
             transform-origin: 50% 60%;
             transform: translate(50%, 50%)
         }
 
             .item-2:not(:focus-within):hover {
-                transform: translate(50%, 50%) scale(1.2);
+                transform: translate(50%, 50%) scale(1.1);
                 animation: teeter 3s linear infinite reverse;
             }
 
             .item-2:hover ~ .selection {
                 --x: 62% !important;
                 --y: 55% !important;
+                /* --x: 50% !important; */
+                /* --y: 50% !important; */
             }
 
             .item-2:focus-within ~ .selection,
             .submenu-2:focus-within ~ .selection {
                 --x: 62%;
                 --y: 55%;
+                /* --x: 50%; */
+                /* --y: 50%; */
             }
 
         .item-3 {
             position: absolute;
             bottom: 22%;
             right: 21%;
+            /* bottom: 32%; */
+            /* right: 30%; */
             transform-origin: 50% 60%;
             transform: translate(50%, 50%);
             /* background-color: aqua; */
         }
 
             .item-3:not(:focus-within):hover {
-                transform: translate(50%, 50%) scale(1.2);
+                transform: translate(50%, 50%) scale(1.1);
                 animation: teeter 3s linear infinite;
             }
 
             .item-3:hover ~ .selection {
                 --x: 79% !important;
                 --y: 78% !important;
+                /* --x: 70% !important; */
+                /* --y: 68% !important; */
             }
             
             .item-3:focus-within ~ .selection,
             .submenu-3:focus-within ~ .selection {
                 --x: 79%;
                 --y: 78%;
+                /* --x: 70%; */
+                /* --y: 68%; */
             }
 
     .inverting-light {
@@ -224,24 +242,27 @@ body {
     .selection {
         --x: 0%;
         --y: 0%;
-        --offset: 0%;
+        --offset: -5%;
+        --line-width: 5rem;
+        --menu-select: 
+        translate(calc(var(--x) / 2.5 + var(--offset) + 10%), 
+        calc(var(--y) / 2.5 + var(--offset) + 10%));
 
         clip-path: 
             polygon(
-                calc(100% - 5rem) 0%,
-                100% 5rem,
-                5rem 100%,
-                0% calc(100% - 5rem)
+                calc(100% - var(--line-width)) 0%,
+                100% var(--line-width),
+                var(--line-width) 100%,
+                0% calc(100% - var(--line-width))
             );
         position: absolute;
-        right: 6%;
-        bottom: 6%;
-        height: 200%;
-        width: 200%;
-        transform-origin: 100% 0%;
+        right: 0%;
+        bottom: 0%;
+        height: 250%;
+        width: 250%;
+        transform-origin: 50% 50%;
         transform: 
-        translate(calc(var(--x) / 2 + var(--offset)), 
-        calc(var(--y) / 2 + var(--offset)));
+        var(--menu-select);
         pointer-events: none;
         z-index: 1;
 
@@ -284,10 +305,11 @@ body {
                 width: 100%;
                 line-height: 3.5rem;
                 display: flex;
-                justify-content: center;
+                justify-content: right;
             }
 
         .submenu-1 {
+            min-height: 296px;
             height: 40%;
             width: 50%;
         }
@@ -312,13 +334,14 @@ body {
                 
                     .submenu-1 .ray-1 {
                         height: 3.5rem;
+                        min-width: 422px;
                         width: 57dvh;
                         transform-origin: 100% 100%;
                         transform: rotateZ(30deg);
                     }
 
                         .project-1 {
-                            padding-left: 16%;
+                            padding-right: 12%;
                         }
 
                             .project-1:hover ~ .submenu-selection,
@@ -340,13 +363,14 @@ body {
                 
                     .submenu-1 .ray-3 {
                         height: 3.5rem;
+                        min-width: 999px;
                         width: 135dvh;
                         transform-origin: 100% 100%;
                         transform: rotateZ(26deg);
                     }
 
                         .project-3 {
-                            padding-left: 42%;
+                            padding-right: 15%;
                         }
 
                             .project-3:hover ~ .submenu-selection,
@@ -375,13 +399,14 @@ body {
 
                     .submenu-1 .ray-2 {
                         height: 3.5rem;
+                        min-width: 666px;
                         width: 90dvh;
                         transform-origin: 100% 100%;
                         transform: rotateZ(28deg)
                     }
 
                         .project-2 {
-                            padding-left: 30%;
+                            padding-right: 12%;
                         }
 
                             .project-2:hover ~ .submenu-selection,
@@ -392,6 +417,7 @@ body {
         .submenu-2 {
             height: 100%;
             width: 100%;
+            font-size: 1rem;
         }
 
             div[class|="spotlight"] {
@@ -414,7 +440,7 @@ body {
                 article::before {
                     content: "";
                     float: left;
-                    aspect-ratio: 1 / 2;
+                    width: 49%;
                     shape-outside: polygon(
                         0 0,
                         98% 0,
@@ -434,7 +460,8 @@ body {
                 .description::before {
                     content: "";
                     float: right;
-                    aspect-ratio: 1 / 2;
+                    height: 100%;
+                    width: 49%;
                     shape-outside: polygon(
                         2% 0%,
                         100% 0%,
@@ -453,10 +480,15 @@ body {
             
             .description {
                 text-align: center;
+                display: block;
+                height: 100%;
             }
 
                 .item-2:focus-within ~ .submenu-2 div[class|="spotlight"] {
-                    transition: height 750ms ease-in-out;
+                    transition: 
+                    height 750ms ease-in-out,
+                    top 400ms ease-in-out,
+                    left 400ms ease-in-out;
                 }
 
                 .spotlight-1 {
@@ -466,29 +498,27 @@ body {
 
                     .spotlight-1 article,
                     .spotlight-1 article::before,
-                    .spotlight-1 .description::before,
                     .item-2:focus-within ~ .submenu-2 .spotlight-1 {
-                        height: 27rem;
+                        height: 27em;
                     }
 
                         .spotlight-1 .description {
-                            font-size: 1.32rem;
+                            font-size: 1.32em;
                         }
 
                 .spotlight-2 {
                     top: 25%;
-                    left: 62%;
+                    left: 60%;
                 }
 
                     .spotlight-2 article,
                     .spotlight-2 article::before,
-                    .spotlight-2 .description::before,
                     .item-2:focus-within ~ .submenu-2 .spotlight-2 {
-                        height: 17rem;
+                        height: 17em;
                     }
 
                         .spotlight-2 .description {
-                            font-size: 0.94rem;
+                            font-size: 0.94em;
                         }
 
         .submenu-3 {
@@ -574,3 +604,264 @@ body {
                         .social-2:focus-within ~ .submenu-selection {
                             background-color: hsl(160deg, 100%, 65%);
                         }
+
+@media screen and (max-width: 1300px) {
+    .selection {
+        --line-width: 5rem;
+
+        transform: var(--menu-select) rotate(-10deg);
+    }
+
+    .submenu-1 {
+        height: 27vw;
+        height: 35%;
+    }
+
+    .project-1 {
+        padding-right: 7vw;
+    }
+
+    .project-2 {
+        padding-right: 9.5vw;
+    }
+
+    .project-3 {
+        padding-right: 16vw;
+    }
+
+    .spotlight-1 {
+        top: 50%;
+    }
+
+    .spotlight-2 {
+        top: 20%;
+    }
+
+    .submenu-3 {
+        height: 20vw;
+    }
+
+    .submenu-3 .ray-1 {
+        width: 41vw;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .submenu-1 {
+        min-height: unset;
+        height: 284px;
+    }
+
+    .project-1 {
+        padding-right: 3rem;
+    }
+
+    .project-2 {
+        padding-right: 4.75rem;
+    }
+
+    .project-3 {
+        padding-right: 10rem;
+    }
+
+    .spotlight-1 {
+        top: 55%;
+    }
+
+    .submenu-3 {
+        height: 25vw;
+    }
+
+    .submenu-3 .ray-1 {
+        width: 51vw;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .selection {
+        --line-width: 5rem;
+        
+        transform: var(--menu-select) rotate(-25deg);
+    }
+
+    .item-1 {
+        bottom: 72%;
+        right: 55%;
+    }
+
+        .item-1:hover ~ .selection {
+            --x: 45% !important;
+            --y: 28% !important;
+        }
+
+        .item-1:focus-within ~ .selection,
+        .submenu-1:focus-within ~ .selection {
+            --x: 45%;
+            --y: 28%;
+            transform: var(--menu-select) rotate(-15deg);
+        }
+
+    .item-2 {
+        bottom: 54%;
+        right: 37.5%;
+    }
+
+        .item-2:hover ~ .selection {
+            --x: 62.5% !important;
+            --y: 46% !important;
+        }
+
+        .item-2:focus-within ~ .selection,
+        .submenu-2:focus-within ~ .selection {
+            --x: 62.5%;
+            --y: 46%;
+            transform: var(--menu-select) rotate(-5deg);
+        }
+
+    .item-3 {
+        bottom: 36%;
+        right: 20%;
+    }
+
+        .item-3:hover ~ .selection {
+            --x: 80% !important;
+            --y: 64% !important;
+        }
+
+        .item-3:focus-within ~ .selection,
+        .submenu-3:focus-within ~ .selection {
+            --x: 80%;
+            --y: 64%;
+            transform: var(--menu-select) rotate(5deg);
+        }
+
+    .spotlight-1 {
+        top: 50%;
+    }
+
+    .spotlight-2 {
+        top: 15%;
+        left: 65%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .selection {
+        --menu-select: 
+            translate(
+                0px, 
+                calc(var(--y) + var(--offset))
+            );
+        /* --offset: -50% !important; */
+
+        clip-path: none;
+        right: 50%;
+        bottom: -4rem;
+        height: 4rem;
+        width: 100%;
+        transform: translate(50%, 50%) !important;
+        transition: bottom 500ms ease-in-out 1s;
+    }
+
+        input[class|="item"]:hover ~ .selection,
+        input[class|="item"]:focus-within ~ .selection,
+        div[class|="submenu"]:focus-within ~ .selection {
+            --offset: 0%;
+            transition: bottom 400ms ease-in-out;
+        }
+
+    @keyframes select-1 {
+        from {
+            width: 0px;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes select-2 {
+        from {
+            width: 0px;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes select-3 {
+        from {
+            width: 0px;
+        }
+        to {
+            width: 100%;
+        }
+    }
+    
+    input[class|="item"] {
+        right: 50%;
+        height: 5rem;
+    }
+
+        input[class|="item"]:focus-within ~ .selection {
+            
+        }
+
+    .item-1 {
+        bottom: 60%;
+    }
+
+        .item-1:focus-within ~ .selection,
+        .submenu-1:focus-within ~ .selection {
+            bottom: 60%;
+        }
+
+        .item-1:hover ~ .selection {
+            bottom: 60% !important;
+        }
+
+    .item-2 {
+        bottom: 48%;
+    }
+
+        .item-2:focus-within ~ .selection,
+        .submenu-2:focus-within ~ .selection {
+            bottom: 48%;
+        }
+
+        .item-2:hover ~ .selection {
+            bottom: 48% !important;
+        }
+
+        .item-3:focus-within ~ .selection,
+        .submenu-3:focus-within ~ .selection {
+            bottom: 36%;
+        }
+
+        .item-3:hover ~ .selection {
+            bottom: 36% !important;
+        }
+
+            .spotlight-1 {
+                top: 21%;
+                left: 72%;
+                font-size: calc(5px + 1.1vw);
+                /* font-size: 6px; */
+            }
+
+            .spotlight-2 {
+                top: calc(20% + 15vw);
+                left: 24%;
+                font-size: calc(10px + 1vw);
+            }
+}
+
+@media screen and (hover: none) {
+    .item-1:not(:focus-within),
+    .item-3:not(:focus-within) {
+        animation: teeter 3s linear infinite;
+    }
+
+    .item-2:not(:focus-within) {
+        animation: teeter 3s linear infinite reverse;
+    }
+}
