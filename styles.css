@@ -899,12 +899,16 @@ body {
 }
 
 @media screen and (hover: none) {
-    .item-1:not(:focus-within),
-    .item-3:not(:focus-within) {
+    .item-1,
+    .item-3 {
         animation: teeter 3s linear infinite;
     }
 
-    .item-2:not(:focus-within) {
+    .item-2 {
         animation: teeter 3s linear infinite reverse;
+    }
+
+    input[class|="item"]:focus-within {
+        animation: none;
     }
 }
