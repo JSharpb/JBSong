@@ -492,6 +492,7 @@ body {
             }
 
                 .item-2:focus-within ~ .submenu-2 div[class|="spotlight"] {
+                    opacity: 1;
                     transition: 
                     height 750ms ease-in-out,
                     width 750ms ease-in-out,
