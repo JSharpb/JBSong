@@ -65,11 +65,12 @@ body {
 
     .greeting {
         position: absolute;
-        bottom: 10%;
+        bottom: min(10%, 10vw);
         left: 10%;
         font-weight: 100;
         font-size: 3rem;
         line-height: 3.5rem;
+        white-space: nowrap;
     }
 
         .greeting span {
@@ -309,7 +310,7 @@ body {
             }
 
         .submenu-1 {
-            min-height: 296px;
+            /* min-height: 296px; */
             height: 40%;
             width: 50%;
         }
@@ -613,7 +614,6 @@ body {
     }
 
     .submenu-1 {
-        height: 27vw;
         height: 35%;
     }
 
@@ -648,8 +648,7 @@ body {
 
 @media screen and (max-width: 1050px) {
     .submenu-1 {
-        min-height: unset;
-        height: 284px;
+        height: 21rem;
     }
 
     .project-1 {
@@ -669,15 +668,15 @@ body {
     }
 
     .submenu-3 {
-        height: 25vw;
+        height: 16rem;
     }
 
     .submenu-3 .ray-1 {
-        width: 51vw;
+        width: 32rem;
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px) and (min-width: 721px) {
     .selection {
         --line-width: 5rem;
         
@@ -692,6 +691,7 @@ body {
         .item-1:hover ~ .selection {
             --x: 45% !important;
             --y: 28% !important;
+            transform: var(--menu-select) rotate(-15deg) !important;
         }
 
         .item-1:focus-within ~ .selection,
@@ -709,6 +709,7 @@ body {
         .item-2:hover ~ .selection {
             --x: 62.5% !important;
             --y: 46% !important;
+            transform: var(--menu-select) rotate(-5deg) !important;
         }
 
         .item-2:focus-within ~ .selection,
@@ -726,6 +727,7 @@ body {
         .item-3:hover ~ .selection {
             --x: 80% !important;
             --y: 64% !important;
+            transform: var(--menu-select) rotate(5deg) !important;
         }
 
         .item-3:focus-within ~ .selection,
@@ -769,33 +771,6 @@ body {
             --offset: 0%;
             transition: bottom 400ms ease-in-out;
         }
-
-    @keyframes select-1 {
-        from {
-            width: 0px;
-        }
-        to {
-            width: 100%;
-        }
-    }
-
-    @keyframes select-2 {
-        from {
-            width: 0px;
-        }
-        to {
-            width: 100%;
-        }
-    }
-
-    @keyframes select-3 {
-        from {
-            width: 0px;
-        }
-        to {
-            width: 100%;
-        }
-    }
     
     input[class|="item"] {
         right: 50%;
@@ -807,52 +782,103 @@ body {
         }
 
     .item-1 {
-        bottom: 60%;
+        bottom: calc(44% + 19.51vw);
     }
 
         .item-1:focus-within ~ .selection,
         .submenu-1:focus-within ~ .selection {
-            bottom: 60%;
+            bottom: calc(44% + 19.51vw);
         }
 
         .item-1:hover ~ .selection {
-            bottom: 60% !important;
+            bottom: calc(44% + 19.51vw) !important;
         }
 
     .item-2 {
-        bottom: 48%;
+        bottom: calc(32% + 19.51vw);
     }
 
         .item-2:focus-within ~ .selection,
         .submenu-2:focus-within ~ .selection {
-            bottom: 48%;
+            bottom: calc(32% + 19.51vw);
         }
 
         .item-2:hover ~ .selection {
-            bottom: 48% !important;
+            bottom: calc(32% + 19.51vw) !important;
         }
+
+    .item-3 {
+        bottom: calc(20% + 19.51vw);
+    }
 
         .item-3:focus-within ~ .selection,
         .submenu-3:focus-within ~ .selection {
-            bottom: 36%;
+            bottom: calc(20% + 19.51vw);
         }
 
         .item-3:hover ~ .selection {
-            bottom: 36% !important;
+            bottom: calc(20% + 19.51vw) !important;
         }
 
-            .spotlight-1 {
-                top: 21%;
-                left: 72%;
-                font-size: calc(5px + 1.1vw);
-                /* font-size: 6px; */
-            }
+    .submenu-1 {
+        height: 18rem;
+    }
 
-            .spotlight-2 {
-                top: calc(20% + 15vw);
-                left: 24%;
-                font-size: calc(10px + 1vw);
-            }
+        /* .project-1 {
+            padding-right: 6rem;
+        }
+
+        .project-2 {
+            padding-right: 8.25rem;
+        }
+
+        .project-3 {
+            padding-right: 14rem;
+        } */
+
+    .spotlight-1 {
+        top: calc(10% + 13.4vw);
+        left: 72%;
+        font-size: calc(5px + 1.1vw);
+        /* font-size: 6px; */
+    }
+
+    .spotlight-2 {
+        top: calc(23% + 9.75vw);
+        /* top: 32%; */
+        left: 24%;
+        font-size: calc(10px + 1vw);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: calc(3px + 1.76vw);
+    }
+
+    .spotlight-1 {
+        font-size: 2.1vw;
+    }
+
+    .spotlight-2 {
+        font-size: 3vw;
+        left: 25%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .logo {
+        top: 8%;
+    }
+
+    .greeting {
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 8.5vw;
+        line-height: 10.3vw;
+        /* font-size: 7vw;
+        line-height: 8.5vw; */
+    }
 }
 
 @media screen and (hover: none) {
