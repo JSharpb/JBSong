@@ -6,6 +6,7 @@
 }
 
 html {
+    background-color: var(--bg-color);
     font-family: 'lexend deca', Tahoma, 'Trebuchet MS';
     font-size: calc(10px + 0.36vw);
     font-weight: 200;
@@ -427,7 +428,7 @@ body {
                 border-radius: 50%;
                 height: 0rem;
                 width: 0rem;
-                aspect-ratio: 1 / 1;
+                /* aspect-ratio: 1 / 1; */
                 transform: translate(-50%, -50%);
                 overflow: hidden;
                 display: flex;
