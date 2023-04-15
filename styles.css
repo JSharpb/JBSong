@@ -6,7 +6,6 @@
 }
 
 html {
-    background-color: var(--bg-color);
     font-family: 'lexend deca', Tahoma, 'Trebuchet MS';
     font-size: calc(10px + 0.36vw);
     font-weight: 200;
@@ -20,6 +19,7 @@ html {
 }
 
 body {
+    background-color: var(--bg-color);
     height: 100dvh;
     font-size: 1rem;
 }
