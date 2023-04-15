@@ -508,7 +508,7 @@ body {
                         height: 27em;
                     }
                     
-                    .item-2:focus-within ~ .submenu-2 .spotlight-1 {
+                    .item-2 ~ .submenu-2 .spotlight-1 {
                         height: 27em;
                         width: 27em;
                     }
@@ -527,7 +527,7 @@ body {
                         height: 17em;
                     }
                     
-                    .item-2:focus-within ~ .submenu-2 .spotlight-2 {
+                    .item-2 ~ .submenu-2 .spotlight-2 {
                         height: 17em;
                         width: 17em;
                     }
