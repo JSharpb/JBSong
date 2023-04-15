@@ -426,15 +426,25 @@ body {
             div[class|="spotlight"] {
                 position: absolute;
                 border-radius: 50%;
-                /* aspect-ratio: 1 / 1; */
+                aspect-ratio: 1 / 1;
+                height: 0px;
+                width: 0px;
                 transform: translate(-50%, -50%);
                 overflow: hidden;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                animation: backdrop-bugfix 100ms linear;
                 transition: 
                 height 500ms cubic-bezier(0.75, -0.5, 0.75, 1),
                 width 500ms cubic-bezier(0.75, -0.5, 0.75, 1);
+            }
+
+            @keyframes backdrop-bugfix {
+                from, to {
+                    height: 2px;
+                    width: 2px;
+                }
             }
 
                 article {
@@ -487,11 +497,6 @@ body {
                 display: block;
                 height: 100%;
             }
-            
-                .item-2:not(focus-within) ~ .submenu-2 div[class|="spotlight"] {
-                    height: 0rem;
-                    width: 0rem;
-                }
 
                 .item-2:focus-within ~ .submenu-2 div[class|="spotlight"] {
                     transition: 
@@ -514,7 +519,6 @@ body {
                     .item-2:focus-within ~ .submenu-2 .spotlight-1 {
                         height: 27em;
                         width: 27em;
-                        backdrop-filter: invert(1);
                     }
 
                         .spotlight-1 .description {
@@ -534,7 +538,6 @@ body {
                     .item-2:focus-within ~ .submenu-2 .spotlight-2 {
                         height: 17em;
                         width: 17em;
-                        backdrop-filter: invert(1);
                     }
 
                         .spotlight-2 .description {
