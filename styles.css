@@ -426,7 +426,7 @@ body {
             div[class|="spotlight"] {
                 position: absolute;
                 border-radius: 50%;
-                aspect-ratio: 1 / 1;
+                /* aspect-ratio: 1 / 1; */
                 height: 0px;
                 width: 0px;
                 transform: translate(-50%, -50%);
@@ -434,7 +434,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                animation: backdrop-bugfix 100ms linear;
+                animation: backdrop-bugfix 1000ms linear;
                 transition: 
                 height 500ms cubic-bezier(0.75, -0.5, 0.75, 1),
                 width 500ms cubic-bezier(0.75, -0.5, 0.75, 1);
