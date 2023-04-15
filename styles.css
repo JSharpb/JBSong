@@ -441,9 +441,14 @@ body {
             }
 
             @keyframes backdrop-bugfix {
-                from, to {
-                    height: 2px;
-                    width: 2px;
+                from {
+                    height: 200px;
+                    width: 200px;
+                }
+
+                to {
+                    height: 0px;
+                    width: 0px;
                 }
             }
 
