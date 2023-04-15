@@ -426,8 +426,6 @@ body {
             div[class|="spotlight"] {
                 position: absolute;
                 border-radius: 50%;
-                height: 0rem;
-                width: 0rem;
                 /* aspect-ratio: 1 / 1; */
                 transform: translate(-50%, -50%);
                 overflow: hidden;
@@ -489,6 +487,11 @@ body {
                 display: block;
                 height: 100%;
             }
+            
+                .item-2:not(focus-within) ~ .submenu-2 div[class|="spotlight"] {
+                    height: 0rem;
+                    width: 0rem;
+                }
 
                 .item-2:focus-within ~ .submenu-2 div[class|="spotlight"] {
                     transition: 
