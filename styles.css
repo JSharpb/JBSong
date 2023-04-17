@@ -3,6 +3,13 @@
 :root {
     --bg-color: rgb(0, 8, 15);
     --text-color: hsl(200deg, 100%, 92%);
+
+    --warm-pink: hsla(330deg, 100%, 65%);
+    --grassy-green: hsl(100deg, 100%, 60%);
+    --cool-blue: hsl(200deg, 100%, 60%);
+    --bright-red: hsl(340deg, 100%, 65%);
+    --icey-blue: hsl(160deg, 100%, 65%);
+    --hazey-purple: hsl(280deg, 100%, 60%);
 }
 
 html {
@@ -108,7 +115,15 @@ body {
     }
 
     input[class|="item"] {
-        width: 7.5rem;
+        --height: 2.5rem;
+        --width: 7.5rem;
+
+        height: var(--height);
+        width: var(--width);
+        position: absolute;
+        bottom: calc(var(--cy-from-bottom) - calc(var(--height) / 2));
+        right: calc(var(--cx-from-right) - calc(var(--width) / 2));
+        transform-origin: 50% 60%;
         font-size: 2rem;
         font-weight: 200;
         text-align: center;
@@ -118,19 +133,19 @@ body {
         @keyframes teeter {
             from, to {
                 animation-timing-function: ease-out;
-                transform: translate(50%, 50%) scale(1.2);
+                transform: scale(1.2);
             }
             25% {
                 animation-timing-function: ease-in;
-                transform: translate(50%, 50%) scale(1.2) rotateZ(-5deg);
+                transform: scale(1.2) rotateZ(-5deg);
             }
             50% {
                 animation-timing-function: ease-out;
-                transform: translate(50%, 50%) scale(1.2);
+                transform: scale(1.2);
             }
             75% {
                 animation-timing-function: ease-in;
-                transform: translate(50%, 50%) scale(1.2) rotateZ(5deg);
+                transform: scale(1.2) rotateZ(5deg);
             }
         }
 
@@ -147,12 +162,8 @@ body {
         }
 
         .item-1 {
-            position: absolute;
-            bottom: 68%;
-            right: 55%;
-            /* right: 70%; */
-            transform-origin: 50% 60%;
-            transform: translate(50%, 50%);
+            --cy-from-bottom: 68%;
+            --cx-from-right: 55%;
         }
 
             .item-1:not(:focus-within):hover {
@@ -176,13 +187,8 @@ body {
                 }
 
         .item-2 {
-            position: absolute;
-            bottom: 45%;
-            right: 38%;
-            /* bottom: 50%; */
-            /* right: 50%; */
-            transform-origin: 50% 60%;
-            transform: translate(50%, 50%)
+            --cy-from-bottom: 45%;
+            --cx-from-right: 38%;
         }
 
             .item-2:not(:focus-within):hover {
@@ -206,14 +212,8 @@ body {
             }
 
         .item-3 {
-            position: absolute;
-            bottom: 22%;
-            right: 21%;
-            /* bottom: 32%; */
-            /* right: 30%; */
-            transform-origin: 50% 60%;
-            transform: translate(50%, 50%);
-            /* background-color: aqua; */
+            --cy-from-bottom: 22%;
+            --cx-from-right: 21%;
         }
 
             .item-3:not(:focus-within):hover {
@@ -313,7 +313,8 @@ body {
 
         .submenu-1 {
             /* min-height: 296px; */
-            height: 40%;
+            /* height: 40%; */
+            height: 22rem;
             width: 50%;
         }
 
@@ -337,8 +338,9 @@ body {
                 
                     .submenu-1 .ray-1 {
                         height: 3.5rem;
-                        min-width: 422px;
-                        width: 57dvh;
+                        /* min-width: 422px; */
+                        /* width: 57dvh; */
+                        width: 31rem;
                         transform-origin: 100% 100%;
                         transform: rotateZ(30deg);
                     }
@@ -349,7 +351,7 @@ body {
 
                             .project-1:hover ~ .submenu-selection,
                             .project-1:focus-within ~ .submenu-selection {
-                                background-color: hsl(330deg, 100%, 65%);
+                                background-color: var(--warm-pink);
                             }
                 
                 .top-wrap-2 {
@@ -366,8 +368,9 @@ body {
                 
                     .submenu-1 .ray-3 {
                         height: 3.5rem;
-                        min-width: 999px;
-                        width: 135dvh;
+                        /* min-width: 999px; */
+                        /* width: 135dvh; */
+                        width: 66rem;
                         transform-origin: 100% 100%;
                         transform: rotateZ(26deg);
                     }
@@ -378,7 +381,7 @@ body {
 
                             .project-3:hover ~ .submenu-selection,
                             .project-3:focus-within ~ .submenu-selection {
-                                background-color: hsl(200, 100%, 50%);
+                                background-color: var(--cool-blue);
                             }
 
             div[class|="right-wrap"] {
@@ -402,8 +405,9 @@ body {
 
                     .submenu-1 .ray-2 {
                         height: 3.5rem;
-                        min-width: 666px;
-                        width: 90dvh;
+                        /* min-width: 666px; */
+                        /* width: 90dvh; */
+                        width: 47rem;
                         transform-origin: 100% 100%;
                         transform: rotateZ(28deg)
                     }
@@ -414,7 +418,7 @@ body {
 
                             .project-2:hover ~ .submenu-selection,
                             .project-2:focus-within ~ .submenu-selection {
-                                background-color: hsl(100deg, 100%, 60%)
+                                background-color: var(--grassy-green);
                             }
 
         .submenu-2 {
@@ -615,13 +619,17 @@ body {
 
                         .social-1:hover ~ .submenu-selection,
                         .social-1:focus-within ~ .submenu-selection {
-                            background-color: hsl(340deg, 100%, 65%);
+                            background-color: var(--bright-red);
                         }
 
                         .social-2:hover ~ .submenu-selection,
                         .social-2:focus-within ~ .submenu-selection {
-                            background-color: hsl(160deg, 100%, 65%);
+                            background-color: var(--icey-blue);
                         }
+
+
+
+
 
 @media screen and (max-width: 1300px) {
     .selection {
@@ -631,19 +639,20 @@ body {
     }
 
     .submenu-1 {
-        height: 35%;
+        /* height: 35%; */
+        height: 21rem;
     }
 
     .project-1 {
-        padding-right: 7vw;
+        padding-right: 6.5rem;
     }
 
     .project-2 {
-        padding-right: 9.5vw;
+        padding-right: 8.25rem;
     }
 
     .project-3 {
-        padding-right: 16vw;
+        padding-right: 13rem;
     }
 
     .spotlight-1 {
@@ -662,6 +671,10 @@ body {
         width: 41vw;
     }
 }
+
+
+
+
 
 @media screen and (max-width: 1050px) {
     .submenu-1 {
@@ -693,7 +706,12 @@ body {
     }
 }
 
-@media screen and (max-width: 850px) and (min-width: 721px) {
+
+
+
+
+@media screen and (max-width: 850px) and (min-width: 721px),
+(max-width: 850px) and (orientation: landscape) {
     .selection {
         --line-width: 5rem;
         
@@ -701,8 +719,8 @@ body {
     }
 
     .item-1 {
-        bottom: 72%;
-        right: 55%;
+        --cy-from-bottom: 72%;
+        --cx-from-right: 55%;
     }
 
         .item-1:hover ~ .selection {
@@ -719,8 +737,8 @@ body {
         }
 
     .item-2 {
-        bottom: 54%;
-        right: 37.5%;
+        --cy-from-bottom: 54%;
+        --cx-from-right: 37.5%;
     }
 
         .item-2:hover ~ .selection {
@@ -737,8 +755,8 @@ body {
         }
 
     .item-3 {
-        bottom: 36%;
-        right: 20%;
+        --cy-from-bottom: 36%;
+        --cx-from-right: 20%;
     }
 
         .item-3:hover ~ .selection {
@@ -764,151 +782,275 @@ body {
     }
 }
 
-@media screen and (max-width: 720px) {
-    .selection {
-        --menu-select: 
-            translate(
-                0px, 
-                calc(var(--y) + var(--offset))
-            );
-        /* --offset: -50% !important; */
 
-        clip-path: none;
-        right: 50%;
-        bottom: -4rem;
-        height: 4rem;
-        width: 100%;
-        transform: translate(50%, 50%) !important;
-        transition: bottom 500ms ease-in-out 1s;
-    }
 
-        input[class|="item"]:hover ~ .selection,
-        input[class|="item"]:focus-within ~ .selection,
-        div[class|="submenu"]:focus-within ~ .selection {
-            --offset: 0%;
-            transition: bottom 400ms ease-in-out;
-        }
-    
-    input[class|="item"] {
-        right: 50%;
-        height: 5rem;
-    }
 
-        input[class|="item"]:focus-within ~ .selection {
-            
+
+@media only screen and (orientation: landscape) {
+
+    @media (max-height: 850px) {
+        html {
+            font-size: calc(5px + 0.94dvh);
         }
 
-    .item-1 {
-        bottom: calc(44% + 19.51vw);
-    }
-
-        .item-1:focus-within ~ .selection,
-        .submenu-1:focus-within ~ .selection {
-            bottom: calc(44% + 19.51vw);
+        .logo {
+            left: 2.5%;
+            top: 5%;
+        }
+        
+        .greeting {
+            left: 2.5%;
+            bottom: 5%;
         }
 
-        .item-1:hover ~ .selection {
-            bottom: calc(44% + 19.51vw) !important;
+        .spotlight-1 {
+            left: 22%;
+            top: 45%;
         }
-
-    .item-2 {
-        bottom: calc(32% + 19.51vw);
-    }
-
-        .item-2:focus-within ~ .selection,
-        .submenu-2:focus-within ~ .selection {
-            bottom: calc(32% + 19.51vw);
+        
+        .spotlight-2 {
+            left: calc(55% + 8dvh);
+            top: 20%;
         }
-
-        .item-2:hover ~ .selection {
-            bottom: calc(32% + 19.51vw) !important;
-        }
-
-    .item-3 {
-        bottom: calc(20% + 19.51vw);
-    }
-
-        .item-3:focus-within ~ .selection,
-        .submenu-3:focus-within ~ .selection {
-            bottom: calc(20% + 19.51vw);
-        }
-
-        .item-3:hover ~ .selection {
-            bottom: calc(20% + 19.51vw) !important;
-        }
-
-    .submenu-1 {
-        height: 18rem;
-    }
-
-        /* .project-1 {
-            padding-right: 6rem;
-        }
-
-        .project-2 {
-            padding-right: 8.25rem;
-        }
-
-        .project-3 {
-            padding-right: 14rem;
-        } */
-
-    .spotlight-1 {
-        top: calc(10% + 13.4vw);
-        left: 72%;
-        font-size: calc(5px + 1.1vw);
-        /* font-size: 6px; */
-    }
-
-    .spotlight-2 {
-        top: calc(23% + 9.75vw);
-        /* top: 32%; */
-        left: 24%;
-        font-size: calc(10px + 1vw);
     }
 }
 
-@media screen and (max-width: 500px) {
-    html {
-        font-size: calc(3px + 1.76vw);
+
+
+
+
+@media only screen and (orientation: portrait) {
+
+    @media screen and (max-width: 720px) {
+        .selection {
+            --menu-select: 
+                translate(
+                    0px, 
+                    calc(var(--y) + var(--offset))
+                );
+            /* --offset: -50% !important; */
+
+            clip-path: none;
+            right: 50%;
+            bottom: -4rem;
+            height: 4rem;
+            width: 100%;
+            transform: translate(50%, 50%) !important;
+            transition: bottom 500ms ease-in-out 1s;
+        }
+
+            input[class|="item"]:hover ~ .selection,
+            input[class|="item"]:focus-within ~ .selection,
+            div[class|="submenu"]:focus-within ~ .selection {
+                --offset: 0%;
+                transition: bottom 400ms ease-in-out;
+            }
+        
+        input[class|="item"] {
+            --cx-from-right: 50%;
+            --height: 5rem;
+        }
+
+            input[class|="item"]:focus-within ~ .selection {
+                
+            }
+
+        .item-1 {
+            --cy-from-bottom: calc(44% + 19.51vw);
+        }
+
+            .item-1:focus-within ~ .selection,
+            .submenu-1:focus-within ~ .selection {
+                bottom: calc(44% + 19.51vw);
+            }
+
+            .item-1:hover ~ .selection {
+                bottom: calc(44% + 19.51vw) !important;
+            }
+
+        .item-2 {
+            --cy-from-bottom: calc(32% + 19.51vw);
+        }
+
+            .item-2:focus-within ~ .selection,
+            .submenu-2:focus-within ~ .selection {
+                bottom: calc(32% + 19.51vw);
+            }
+
+            .item-2:hover ~ .selection {
+                bottom: calc(32% + 19.51vw) !important;
+            }
+
+        .item-3 {
+            --cy-from-bottom: calc(20% + 19.51vw);
+        }
+
+            .item-3:focus-within ~ .selection,
+            .submenu-3:focus-within ~ .selection {
+                bottom: calc(20% + 19.51vw);
+            }
+
+            .item-3:hover ~ .selection {
+                bottom: calc(20% + 19.51vw) !important;
+            }
+
+        .submenu-1 {
+            height: 18rem;
+        }
+
+            /* .project-1 {
+                padding-right: 6rem;
+            }
+
+            .project-2 {
+                padding-right: 8.25rem;
+            }
+
+            .project-3 {
+                padding-right: 14rem;
+            } */
+
+        .spotlight-1 {
+            top: calc(10% + 13.4vw);
+            left: 72%;
+            font-size: calc(5px + 1.1vw);
+            /* font-size: 6px; */
+        }
+
+        .spotlight-2 {
+            top: calc(23% + 9.75vw);
+            /* top: 32%; */
+            left: 24%;
+            font-size: calc(10px + 1vw);
+        }
     }
 
-    .spotlight-1 {
-        font-size: 2.1vw;
+
+
+
+
+    @media screen and (max-width: 500px) {
+        html {
+            font-size: calc(3px + 1.76vw);
+        }
+
+        .spotlight-1 {
+            font-size: 2.1vw;
+        }
+
+        .spotlight-2 {
+            font-size: 3vw;
+            left: 25%;
+        }
     }
 
-    .spotlight-2 {
-        font-size: 3vw;
-        left: 25%;
+
+
+
+
+    @media screen and (max-width: 450px) {
+        .logo {
+            top: 8%;
+        }
+
+        .greeting {
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8.5vw;
+            line-height: 10.3vw;
+            /* font-size: 7vw;
+            line-height: 8.5vw; */
+        }
     }
 }
 
-@media screen and (max-width: 450px) {
-    .logo {
-        top: 8%;
-    }
 
-    .greeting {
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 8.5vw;
-        line-height: 10.3vw;
-        /* font-size: 7vw;
-        line-height: 8.5vw; */
-    }
-}
 
-@media screen and (hover: none) {
-    .item-1,
-    .item-3 {
+
+
+@media screen and (hover: none), (max-width: 850px) {
+    .item-1:not(:focus-within),
+    .item-3:not(:focus-within) {
         animation: teeter 3s linear infinite;
     }
 
-    .item-2 {
+    .item-2:not(:focus-within) {
         animation: teeter 3s linear infinite reverse;
     }
 
-    input[class|="item"]:focus-within {
-        animation: none;
+    @keyframes glow {
+        from, to {
+            background-color: var(--selection-color-1);
+        }
+        
+        50% {
+            /* background-color: var(--selection-color-2); */
+        }
+    }
+
+    .submenu-selection {
+        /* animation: glow 3s ease-in-out infinite; */
+        background-color: var(--selection-color-1);
+        opacity: 0.25;
+    }
+
+    .project-1 ~ .submenu-selection {
+        --selection-color-1: var(--warm-pink);
+        --selection-color-2: transparent;
+        /* background-color: var(--selection-color); */
+        animation-delay: 0s;
+    }
+
+    .project-2 ~ .submenu-selection {
+        --selection-color-1: var(--grassy-green);
+        --selection-color-2: transparent;
+        /* background-color: var(--selection-color); */
+        animation-delay: 1s;
+    }
+
+    .project-3 ~ .submenu-selection {
+        --selection-color-1: var(--cool-blue);
+        --selection-color-2: transparent;
+        /* background-color: var(--selection-color); */
+        animation-delay: 2s;
+    }
+
+    .submenu-3 .submenu-selection {
+        --selection-color-1: var(--icey-blue);
+        --selection-color-2: var(--bright-red);
+        --selection-color-1: var(--hazey-purple);
+    }
+
+    .submenu-3 .ray-1 {
+        gap: 2rem;
+    }
+
+    a[class|="social"] {
+        left: 1rem;
+    }
+
+    .item-3:focus-within ~ .submenu-3 .slide-anim,
+    .submenu-3:focus-within .slide-anim {
+        grid-template-columns: 30% 70%;
+        transition: grid-template-columns 500ms ease-in-out 500ms;
+    }
+
+        .item-3:focus-within ~ .submenu-3 .brand,
+        .submenu-3:focus-within .brand {
+            opacity: 1;
+            right: 0;
+            transition: 
+                opacity 400ms ease-in-out 600ms,
+                right 500ms ease-in-out 500ms;
+        }
+}
+
+
+
+
+
+@media only screen and (orientation: landscape) and (max-height: 1000px) {
+    .container {
+        /* background-color: darkred; */
     }
 }
