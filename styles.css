@@ -127,6 +127,7 @@ body {
         font-size: 2rem;
         font-weight: 200;
         text-align: center;
+        text-indent: 0px;
         cursor: pointer;
     }
         
@@ -150,6 +151,21 @@ body {
         }
 
         input::placeholder {
+            opacity: 1;
+            color: var(--text-color);
+        }
+
+        input::-webkit-input-placeholder {
+            opacity: 1;
+            color: var(--text-color);
+        }
+
+        input::-moz-placeholder {
+            opacity: 1;
+            color: var(--text-color);
+        }
+
+        input:-moz-placeholder {
             opacity: 1;
             color: var(--text-color);
         }
