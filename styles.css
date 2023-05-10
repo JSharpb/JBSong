@@ -117,14 +117,13 @@ body {
     input[class|="item"] {
         --height: 2.5rem;
         --width: 3.75em;
-        
+
         height: var(--height);
         width: var(--width);
         position: absolute;
         bottom: calc(var(--cy-from-bottom) - calc(var(--height) / 2));
         right: calc(var(--cx-from-right) - calc(var(--width) / 2));
         transform-origin: 50% 60%;
-        background-color: red;
         font-size: 2rem;
         font-weight: 200;
         text-align: center;
