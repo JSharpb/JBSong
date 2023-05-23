@@ -362,7 +362,7 @@ body {
                     }
 
                         .project-1 {
-                            padding-right: 12%;
+                            padding-right: 8%;
                         }
 
                             .project-1:hover ~ .submenu-selection,
@@ -660,11 +660,11 @@ body {
     }
 
     .project-1 {
-        padding-right: 6.5rem;
+        padding-right: 5rem;
     }
 
     .project-2 {
-        padding-right: 8.25rem;
+        padding-right: 8rem;
     }
 
     .project-3 {
@@ -698,7 +698,7 @@ body {
     }
 
     .project-1 {
-        padding-right: 3rem;
+        padding-right: 2.5rem;
     }
 
     .project-2 {
@@ -914,17 +914,17 @@ body {
             height: 18rem;
         }
 
-            /* .project-1 {
-                padding-right: 6rem;
+            .project-1 {
+                padding-right: 1.5rem;
             }
 
             .project-2 {
-                padding-right: 8.25rem;
+                padding-right: 4rem;
             }
 
             .project-3 {
-                padding-right: 14rem;
-            } */
+                padding-right: 8.5rem;
+            }
 
         .spotlight-1 {
             top: calc(10% + 13.4vw);
